@@ -7,7 +7,9 @@ Created on Sat Aug 13 09:30:35 2016
 
 # get started
 # cd '~/Users/Holly/learning2016/Projects/Hotel Tweets'
-import pandas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import re
 import json
 
@@ -68,18 +70,52 @@ def tweetproc(line, termlookup):    # inputs line as a dict
     return tweet
     
    
+#--------------------------------------------------------------------------
+# Function to count unique hashtags
     
+def hashcounter(tweets):    
+    hashtags = dict()
+    for key, tweet in tweets.items():
+        tweethash = tweet.get('hashtags')
+        type(tweethash)
+        for ii in tweethash:
+            if ii.get('text') in hashtags.keys():
+                hashtags[ii.get('text')] += 1
+            else:
+                hashtags[ii.get('text')] = 1
     
+    from operator import itemgetter
+    for k, v in sorted(hashtags.items(), key=itemgetter(1), reverse=True)[0:10]:
+        print k, v
+
+    return hashtags
+
     
 
 #--------------------------------------------------------------------------
 # Open the file
-filename = 'output_follow2Aug16.txt'
+# filename = 'output_follow2Aug16.txt'
+# head -n10 output_follow2Aug16.txt >> tweettest.txt
+filename = 'tweettest.txt'
 fp = open(filename)
 
+# NO! doesn't like this - my API script is converting from json before writing to file
+#import json
+#records = [json.loads(line) for line in fp]
+
+records = [eval(line) for line in fp]
+frame = pd.DataFrame(records)
+
+
+
+
+
+
+'''
+# original dict structure type
 tweets = dict()
 errorlines = []
-for ii in range(100000):
+for ii in range(500):
     try:
         line = fp.readline()
         line = eval(line) # and now the line is a dict
@@ -96,24 +132,8 @@ for ii in range(100000):
 #------------------------------------------
 # hashtag aggs - better way to do this with a dataframe structure?
 
-hashtags = dict()
-for key, tweet in tweets.items():
-    tweethash = tweet.get('hashtags')
-    type(tweethash)
-    for ii in tweethash:
-        #type(ii)
-        #print ii.get('text')
-        if ii.get('text') in hashtags.keys():
-            hashtags[ii.get('text')] += 1
-        else:
-            hashtags[ii.get('text')] = 1
-
-#print hashtags
-
-from operator import itemgetter
-for k, v in sorted(hashtags.items(), key=itemgetter(1), reverse=True)[0:10]:
-    print k, v
-
+hashtags = hashcounter(tweets)
+'''
     
 
 
