@@ -4,7 +4,7 @@
 
 * Git
 * Python 2.7 (via Anaconda)
-** Jupyter - type jupyter notebook
+	* Jupyter - type jupyter notebook
 * Sublime Text
 * Terminal
 
@@ -15,9 +15,8 @@
 * Machine Learning - Ng, Coursera
 * MIT 6.001X - Python
 * Caltech Learning from Data
-Maybe
-* Stats Inference
-* Data Structures
+* Stats Inference (Maybe)
+* Data Structures (Maybe
 
 ## Goals for Week of 11 September 2016
 * Get Twitter script running on AWS
