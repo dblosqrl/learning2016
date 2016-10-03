@@ -28,10 +28,15 @@
 ### Week of 18 Sept 16 - Update 19 Sept 16
 * One week of Algorithms - DONE, one more week to go
 * One week of 6.001 - DONE, though skipped most finger exercises
-* Get Twitter script running on AWS
+* Get Twitter script running on AWS - DONE
 * Complete Week 2 and 3 in ML
 * One week of LFD - tough to pick this up. . .   Rather do project work. . . 
 	
 
-
+### Week of 2 Oct 16 - 
+* Complete Algorithms - DONE!!!!!
+* 6.001 Midterm and commit to completing class
+* Check on Twitter script
+* Commit to work stuff this week - warm up R Studio on the Thinkpad. . . 
+* Drop LFD - :(
 
